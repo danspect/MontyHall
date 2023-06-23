@@ -1,6 +1,6 @@
 namespace MontyHall;
 
-class MontyHallGame
+public class MontyHallGame
 {
     private int portaPremiada; // a porta que contém o prêmio.
     private int portaEscolhida; // a porta que o jogador escolheu.
