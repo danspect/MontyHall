@@ -7,7 +7,7 @@ public class Program
         var montyHall = new MontyHallStatistics();
         List<Tuple<int, string>> possibilidades;
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1000; i++)
         {
             possibilidades = montyHall.GerarPossibilidades();
 
@@ -18,18 +18,18 @@ public class Program
             //foreach (var possibilidade in possibilidades)
             //    Console.WriteLine(possibilidade);
             string[] resultado = new string[2];
-            resultado[0] = "------------------------------------";
-            resultado[1] = $"Partidas ganhas: {partidasGanhas} \nPartidas perdidas: {partidasPerdidas} \nRazão: {razao}";
-            // resultado[0] = $"{i}, {partidasGanhas}, {partidasPerdidas}, {razao}"; // Modelo para arquivo csv.
+            // resultado[0] = "------------------------------------";
+            // resultado[1] = $"Partidas ganhas: {partidasGanhas} \nPartidas perdidas: {partidasPerdidas} \nRazão: {razao}";
+            resultado[0] = $"{i}, {partidasGanhas}, {partidasPerdidas}, {razao}"; // Modelo para arquivo csv.
 
 
-            Console.WriteLine(resultado[1]);
+            // Console.WriteLine(resultado[1]);
             SalvarResultados(resultado);
         }
     }
 
     public static void SalvarResultados(string[] resultados)
     {
-        File.AppendAllLines("resultados.txt", resultados);
+        File.AppendAllLines("resultados.csv", resultados);
     }
 }
