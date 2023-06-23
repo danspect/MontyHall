@@ -20,6 +20,7 @@ public class Program
             string[] resultado = new string[2];
             resultado[0] = "------------------------------------";
             resultado[1] = $"Partidas ganhas: {partidasGanhas} \nPartidas perdidas: {partidasPerdidas} \nRazão: {razao}";
+            // resultado[0] = $"{i}, {partidasGanhas}, {partidasPerdidas}, {razao}"; // Modelo para arquivo csv.
 
 
             Console.WriteLine(resultado[1]);
