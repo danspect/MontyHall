@@ -1,0 +1,400 @@
+------------------------------------
+Partidas ganhas: 502 
+Partidas perdidas: 498 
+Razão: 1,0080321285140563
+------------------------------------
+Partidas ganhas: 518 
+Partidas perdidas: 482 
+Razão: 1,0746887966804979
+------------------------------------
+Partidas ganhas: 500 
+Partidas perdidas: 500 
+Razão: 1
+------------------------------------
+Partidas ganhas: 511 
+Partidas perdidas: 489 
+Razão: 1,0449897750511248
+------------------------------------
+Partidas ganhas: 505 
+Partidas perdidas: 495 
+Razão: 1,02020202020202
+------------------------------------
+Partidas ganhas: 502 
+Partidas perdidas: 498 
+Razão: 1,0080321285140563
+------------------------------------
+Partidas ganhas: 496 
+Partidas perdidas: 504 
+Razão: 0,9841269841269841
+------------------------------------
+Partidas ganhas: 522 
+Partidas perdidas: 478 
+Razão: 1,0920502092050208
+------------------------------------
+Partidas ganhas: 482 
+Partidas perdidas: 518 
+Razão: 0,9305019305019305
+------------------------------------
+Partidas ganhas: 499 
+Partidas perdidas: 501 
+Razão: 0,9960079840319361
+------------------------------------
+Partidas ganhas: 540 
+Partidas perdidas: 460 
+Razão: 1,173913043478261
+------------------------------------
+Partidas ganhas: 499 
+Partidas perdidas: 501 
+Razão: 0,9960079840319361
+------------------------------------
+Partidas ganhas: 479 
+Partidas perdidas: 521 
+Razão: 0,9193857965451055
+------------------------------------
+Partidas ganhas: 520 
+Partidas perdidas: 480 
+Razão: 1,0833333333333333
+------------------------------------
+Partidas ganhas: 491 
+Partidas perdidas: 509 
+Razão: 0,9646365422396856
+------------------------------------
+Partidas ganhas: 504 
+Partidas perdidas: 496 
+Razão: 1,0161290322580645
+------------------------------------
+Partidas ganhas: 496 
+Partidas perdidas: 504 
+Razão: 0,9841269841269841
+------------------------------------
+Partidas ganhas: 508 
+Partidas perdidas: 492 
+Razão: 1,032520325203252
+------------------------------------
+Partidas ganhas: 524 
+Partidas perdidas: 476 
+Razão: 1,1008403361344539
+------------------------------------
+Partidas ganhas: 494 
+Partidas perdidas: 506 
+Razão: 0,9762845849802372
+------------------------------------
+Partidas ganhas: 501 
+Partidas perdidas: 499 
+Razão: 1,0040080160320641
+------------------------------------
+Partidas ganhas: 483 
+Partidas perdidas: 517 
+Razão: 0,9342359767891683
+------------------------------------
+Partidas ganhas: 492 
+Partidas perdidas: 508 
+Razão: 0,968503937007874
+------------------------------------
+Partidas ganhas: 509 
+Partidas perdidas: 491 
+Razão: 1,0366598778004072
+------------------------------------
+Partidas ganhas: 501 
+Partidas perdidas: 499 
+Razão: 1,0040080160320641
+------------------------------------
+Partidas ganhas: 469 
+Partidas perdidas: 531 
+Razão: 0,8832391713747646
+------------------------------------
+Partidas ganhas: 490 
+Partidas perdidas: 510 
+Razão: 0,9607843137254902
+------------------------------------
+Partidas ganhas: 478 
+Partidas perdidas: 522 
+Razão: 0,9157088122605364
+------------------------------------
+Partidas ganhas: 508 
+Partidas perdidas: 492 
+Razão: 1,032520325203252
+------------------------------------
+Partidas ganhas: 504 
+Partidas perdidas: 496 
+Razão: 1,0161290322580645
+------------------------------------
+Partidas ganhas: 512 
+Partidas perdidas: 488 
+Razão: 1,0491803278688525
+------------------------------------
+Partidas ganhas: 506 
+Partidas perdidas: 494 
+Razão: 1,0242914979757085
+------------------------------------
+Partidas ganhas: 511 
+Partidas perdidas: 489 
+Razão: 1,0449897750511248
+------------------------------------
+Partidas ganhas: 473 
+Partidas perdidas: 527 
+Razão: 0,8975332068311196
+------------------------------------
+Partidas ganhas: 500 
+Partidas perdidas: 500 
+Razão: 1
+------------------------------------
+Partidas ganhas: 502 
+Partidas perdidas: 498 
+Razão: 1,0080321285140563
+------------------------------------
+Partidas ganhas: 521 
+Partidas perdidas: 479 
+Razão: 1,0876826722338204
+------------------------------------
+Partidas ganhas: 523 
+Partidas perdidas: 477 
+Razão: 1,0964360587002095
+------------------------------------
+Partidas ganhas: 483 
+Partidas perdidas: 517 
+Razão: 0,9342359767891683
+------------------------------------
+Partidas ganhas: 523 
+Partidas perdidas: 477 
+Razão: 1,0964360587002095
+------------------------------------
+Partidas ganhas: 475 
+Partidas perdidas: 525 
+Razão: 0,9047619047619048
+------------------------------------
+Partidas ganhas: 499 
+Partidas perdidas: 501 
+Razão: 0,9960079840319361
+------------------------------------
+Partidas ganhas: 501 
+Partidas perdidas: 499 
+Razão: 1,0040080160320641
+------------------------------------
+Partidas ganhas: 489 
+Partidas perdidas: 511 
+Razão: 0,9569471624266145
+------------------------------------
+Partidas ganhas: 509 
+Partidas perdidas: 491 
+Razão: 1,0366598778004072
+------------------------------------
+Partidas ganhas: 531 
+Partidas perdidas: 469 
+Razão: 1,1321961620469083
+------------------------------------
+Partidas ganhas: 493 
+Partidas perdidas: 507 
+Razão: 0,9723865877712031
+------------------------------------
+Partidas ganhas: 497 
+Partidas perdidas: 503 
+Razão: 0,9880715705765407
+------------------------------------
+Partidas ganhas: 504 
+Partidas perdidas: 496 
+Razão: 1,0161290322580645
+------------------------------------
+Partidas ganhas: 469 
+Partidas perdidas: 531 
+Razão: 0,8832391713747646
+------------------------------------
+Partidas ganhas: 516 
+Partidas perdidas: 484 
+Razão: 1,0661157024793388
+------------------------------------
+Partidas ganhas: 485 
+Partidas perdidas: 515 
+Razão: 0,941747572815534
+------------------------------------
+Partidas ganhas: 519 
+Partidas perdidas: 481 
+Razão: 1,079002079002079
+------------------------------------
+Partidas ganhas: 492 
+Partidas perdidas: 508 
+Razão: 0,968503937007874
+------------------------------------
+Partidas ganhas: 493 
+Partidas perdidas: 507 
+Razão: 0,9723865877712031
+------------------------------------
+Partidas ganhas: 507 
+Partidas perdidas: 493 
+Razão: 1,028397565922921
+------------------------------------
+Partidas ganhas: 490 
+Partidas perdidas: 510 
+Razão: 0,9607843137254902
+------------------------------------
+Partidas ganhas: 481 
+Partidas perdidas: 519 
+Razão: 0,9267822736030829
+------------------------------------
+Partidas ganhas: 505 
+Partidas perdidas: 495 
+Razão: 1,02020202020202
+------------------------------------
+Partidas ganhas: 488 
+Partidas perdidas: 512 
+Razão: 0,953125
+------------------------------------
+Partidas ganhas: 497 
+Partidas perdidas: 503 
+Razão: 0,9880715705765407
+------------------------------------
+Partidas ganhas: 502 
+Partidas perdidas: 498 
+Razão: 1,0080321285140563
+------------------------------------
+Partidas ganhas: 521 
+Partidas perdidas: 479 
+Razão: 1,0876826722338204
+------------------------------------
+Partidas ganhas: 497 
+Partidas perdidas: 503 
+Razão: 0,9880715705765407
+------------------------------------
+Partidas ganhas: 511 
+Partidas perdidas: 489 
+Razão: 1,0449897750511248
+------------------------------------
+Partidas ganhas: 484 
+Partidas perdidas: 516 
+Razão: 0,937984496124031
+------------------------------------
+Partidas ganhas: 483 
+Partidas perdidas: 517 
+Razão: 0,9342359767891683
+------------------------------------
+Partidas ganhas: 496 
+Partidas perdidas: 504 
+Razão: 0,9841269841269841
+------------------------------------
+Partidas ganhas: 479 
+Partidas perdidas: 521 
+Razão: 0,9193857965451055
+------------------------------------
+Partidas ganhas: 500 
+Partidas perdidas: 500 
+Razão: 1
+------------------------------------
+Partidas ganhas: 465 
+Partidas perdidas: 535 
+Razão: 0,8691588785046729
+------------------------------------
+Partidas ganhas: 487 
+Partidas perdidas: 513 
+Razão: 0,949317738791423
+------------------------------------
+Partidas ganhas: 490 
+Partidas perdidas: 510 
+Razão: 0,9607843137254902
+------------------------------------
+Partidas ganhas: 497 
+Partidas perdidas: 503 
+Razão: 0,9880715705765407
+------------------------------------
+Partidas ganhas: 505 
+Partidas perdidas: 495 
+Razão: 1,02020202020202
+------------------------------------
+Partidas ganhas: 542 
+Partidas perdidas: 458 
+Razão: 1,1834061135371179
+------------------------------------
+Partidas ganhas: 534 
+Partidas perdidas: 466 
+Razão: 1,145922746781116
+------------------------------------
+Partidas ganhas: 498 
+Partidas perdidas: 502 
+Razão: 0,9920318725099602
+------------------------------------
+Partidas ganhas: 497 
+Partidas perdidas: 503 
+Razão: 0,9880715705765407
+------------------------------------
+Partidas ganhas: 503 
+Partidas perdidas: 497 
+Razão: 1,012072434607646
+------------------------------------
+Partidas ganhas: 522 
+Partidas perdidas: 478 
+Razão: 1,0920502092050208
+------------------------------------
+Partidas ganhas: 537 
+Partidas perdidas: 463 
+Razão: 1,1598272138228942
+------------------------------------
+Partidas ganhas: 496 
+Partidas perdidas: 504 
+Razão: 0,9841269841269841
+------------------------------------
+Partidas ganhas: 457 
+Partidas perdidas: 543 
+Razão: 0,8416206261510129
+------------------------------------
+Partidas ganhas: 508 
+Partidas perdidas: 492 
+Razão: 1,032520325203252
+------------------------------------
+Partidas ganhas: 492 
+Partidas perdidas: 508 
+Razão: 0,968503937007874
+------------------------------------
+Partidas ganhas: 483 
+Partidas perdidas: 517 
+Razão: 0,9342359767891683
+------------------------------------
+Partidas ganhas: 512 
+Partidas perdidas: 488 
+Razão: 1,0491803278688525
+------------------------------------
+Partidas ganhas: 495 
+Partidas perdidas: 505 
+Razão: 0,9801980198019802
+------------------------------------
+Partidas ganhas: 510 
+Partidas perdidas: 490 
+Razão: 1,0408163265306123
+------------------------------------
+Partidas ganhas: 531 
+Partidas perdidas: 469 
+Razão: 1,1321961620469083
+------------------------------------
+Partidas ganhas: 516 
+Partidas perdidas: 484 
+Razão: 1,0661157024793388
+------------------------------------
+Partidas ganhas: 492 
+Partidas perdidas: 508 
+Razão: 0,968503937007874
+------------------------------------
+Partidas ganhas: 514 
+Partidas perdidas: 486 
+Razão: 1,0576131687242798
+------------------------------------
+Partidas ganhas: 503 
+Partidas perdidas: 497 
+Razão: 1,012072434607646
+------------------------------------
+Partidas ganhas: 473 
+Partidas perdidas: 527 
+Razão: 0,8975332068311196
+------------------------------------
+Partidas ganhas: 502 
+Partidas perdidas: 498 
+Razão: 1,0080321285140563
+------------------------------------
+Partidas ganhas: 485 
+Partidas perdidas: 515 
+Razão: 0,941747572815534
+------------------------------------
+Partidas ganhas: 500 
+Partidas perdidas: 500 
+Razão: 1
+------------------------------------
+Partidas ganhas: 461 
+Partidas perdidas: 539 
+Razão: 0,8552875695732839
