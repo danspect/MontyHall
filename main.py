@@ -1,9 +1,7 @@
 import random
 
-
 def gen_random_door() -> int:
     return random.randint(1, 3)
-
 
 def monty_hall(trocar_porta: bool) -> bool:
     porta_premiada: int = gen_random_door()
