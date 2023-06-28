@@ -1,0 +1,14 @@
+###############################
+média de vitórias
+trocando de porta = 661,3333333
+não trocando = 330
+###############################
+Variância das vitórias ao trocar de porta = 40,22222222
+Desvio padrão = 6,342099197
+#############################
+Variância das vitórias ao continuar na mesma porta = 128,6666667
+Desvio padrão = 11,34313302
+############################
+Razão média = 2,00633669
+Var. razão = 0,004790144
+
