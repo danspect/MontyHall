@@ -32,16 +32,17 @@ def monty_hall(trocar_porta: bool) -> bool:
     return True if primeira_porta_escolhida == porta_premiada else False
 
 
-def write_to_csv(texto: str, trocar_porta: bool) -> None:
+def write_to_csv(texto: str, trocar_porta: bool, range: int) -> None:
     ''' Escreve os dados da partida em um arquivo .csv. '''
-    with open(f"resultados{trocar_porta}.csv", "a") as f:
+    with open(f"resultados-{trocar_porta}-{range}.csv", "a") as f:
         f.write(texto)
         f.close()
 
 
-trocar_porta = True
-write_to_csv("id, ganhou\n", trocar_porta)
-for i in range(10000):
+trocar_porta = False
+amostra = 10_000
+write_to_csv("id, ganhou\n", trocar_porta, amostra)
+for i in range(amostra):
     resultado: bool = monty_hall(trocar_porta)
     resultado_formatado: str = f"{i}, {resultado}\n"
-    write_to_csv(resultado_formatado, trocar_porta)
+    write_to_csv(resultado_formatado, trocar_porta, amostra)
