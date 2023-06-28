@@ -1,10 +1,13 @@
-# O Problema do Apresentador: Uma Abordagem Estatística para o Problema de Monty Hall
+<h1 style="text-align: center"><strong>O Problema do Apresentador: Uma Abordagem Estatística para o Problema de Monty Hall</strong></h1>
 
 # Sumário
-1. [Introdução](#introdução)
-2. [Metodologia: como funciona o experimento](#metodologia-como-funciona-o-experimento)
-3. [O Problema](#o-problema)
-4. 
+  1. [Introdução](#introdução)
+  2. [Metodologia](#metodologia)
+  3. [O problema](#o-problema)
+  4. [Soluções: porque é melhor trocar de porta](#soluções-porque-é-melhor-trocar-de-porta)
+  5. [Dados do experimento](#dados-do-experimento)
+  6. [Conclusão](#conclusão)
+  7. [Referências](#referências)
 
 ## Introdução
 
@@ -12,7 +15,7 @@ O problema de [Monty Hall](https://brilliant.org/wiki/monty-hall-problem/) envol
 
 <img src="images/doors.png" alt="três portas com sinais de interrogação."/>
 
-## Metodologia: como funciona o experimento
+## Metodologia
 
 ## O problema
 
@@ -27,7 +30,7 @@ Nesse sentido, o grande ponto do problema de Monty Hall é este: <strong> o apre
 
 Por conseguinte, agora sabemos que uma das portas não tem nenhuma chance de ter o prêmio. Ou seja, é intuitivo pensar que agora cada uma das duas portas restantes possuem 50% de chance de ter o prêmio. No entanto, nos próximos tópicos será provado o porquê disso não ser verdade.  
 
-## Soluções
+## Soluções: porque é melhor trocar de porta
 
 ## Dados do experimento
 
@@ -38,3 +41,4 @@ Por conseguinte, agora sabemos que uma das portas não tem nenhuma chance de ter
 1. Paradoxo de Monty Hall. Universidade Federal do Rio Grande do Sul. Acesso em 23 de jun. de 2023. Disponível em: <https://www.ufrgs.br/wiki-r/index.php?title=Paradoxo_de_Monty_Hall>
 2. Monty Hall Problem. Brilliant.org. Acesso em 25 de jun. de 2023. Disponível em: <https://brilliant.org/wiki/monty-hall-problem/>
 3. Edward R. Scheinerman (2003). Matemática Discreta - Uma Introdução 1 ed. Brasil: Cengage Learning. 532 páginas. [ISBN](https://pt.wikipedia.org/wiki/International_Standard_Book_Number) 85-221-0291-0
+4. Boechat, Gabriel. Simulação do problema de Monty Hall em R. Open Code Community. Acesso em 27 de jun. de 2023. Disponível em: <https://opencodecom.net/post/2021-04-25-simulacao-do-problema-de-monty-hall-em-r> 
