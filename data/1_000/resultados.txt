@@ -1,5 +1,0 @@
-#######################
-VITÓRIAS TROCANDO DE PORTA = 1984
-VITÓRIAS SEM TROC. DE PORTA = 990
-RAZÃO = 2,004040404
-######################
