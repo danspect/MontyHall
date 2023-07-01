@@ -1,10 +1,8 @@
 import random
 
-
 def gen_random_door() -> int:
     ''' Retorna um número aleatório entre 1 e 3. '''
     return random.randint(1, 3)
-
 
 def monty_hall(trocar_porta: bool) -> bool:
     ''' Cria um jogo de monty e retorna se o jogador ganhou ou não a partida. '''
@@ -31,13 +29,11 @@ def monty_hall(trocar_porta: bool) -> bool:
 
     return True if primeira_porta_escolhida == porta_premiada else False
 
-
 def write_to_csv(texto: str, trocar_porta: bool, range: int, num_arquivo: int) -> None:
     ''' Escreve os dados da partida em um arquivo .csv. '''
     with open(f"resultados-{trocar_porta}-{range}-{num_arquivo}.csv", "a") as f:
         f.write(texto)
         f.close()
-
 
 trocar_porta = [True, False] # Define se o jogador deve ou não trocar de porta. Não precisa ser alterado.
 amostra = 10_000 # Quantidade de partidas.
