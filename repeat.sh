@@ -6,5 +6,7 @@
 
 for i in {1..20}
 do
+  echo "Attempt No. $i started"
   python3 main.py
+  echo "Attempt No. $i finished"
 done
