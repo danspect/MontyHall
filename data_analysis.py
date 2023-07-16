@@ -42,33 +42,17 @@ class ProjectDataAnalyser:
 
 
 data = ProjectDataAnalyser()
-troc_porta = data.count_wins_changing()
-sem_troc = data.count_wins_not_changing()
+trocando_porta = data.count_wins_changing()
+sem_trocar = data.count_wins_not_changing()
 data.close_connection()
 
-# Agrupamento das barras.
-x = ["Vitórias", "Derrotas"]
+troc_porta = trocando_porta[0] 
+sem_troc = sem_trocar[0]
 
-# Largura das barras.
-width = 0.1
-
-# Posições das barras.
-x1 = np.arange(len(x))
-x2 = x1 + width
-
-# Criando o subplot.
 fig, ax = plt.subplots()
+ax.bar(['Trocando', 'Não trocando'], [troc_porta, sem_troc], color=['blue', 'red'])
+ax.set_ylabel('Vitorias (em milhões)')
+ax.set_title('Vale a pena trocar de porta?')
+plt.show()
 
-# Desenhando as barras.
-ax.bar(x1, troc_porta, width, label="Troc. porta", color="blue")
-ax.bar(x2, sem_troc, width, label="Sem troc. porta", color="red")
-
-# Adicionando os rótulos do eixo x.
-ax.set_xticks(x2 + width / 2)
-ax.set_xticklabels(x)
-
-# Adicionando a legenda.
-ax.legend()
-
-# Salvando o gráfico.
 plt.savefig("gráfico.png")
