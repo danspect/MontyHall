@@ -9,7 +9,7 @@ class MontyHall:
         self.cursor = self.conexao.cursor()
 
     @staticmethod
-    def gen_random_door(self) -> int:
+    def gen_random_door() -> int:
         """ Retorna um número aleatório entre 1 e 3. """
         return random.randint(1, 3)
 
