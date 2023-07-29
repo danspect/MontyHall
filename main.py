@@ -7,6 +7,11 @@ class MontyHall:
     def __init__(self):
         self.conexao = sqlite3.connect("resultados.db")
         self.cursor = self.conexao.cursor()
+        self.cursor.execute(
+            """CREATE TABLE IF NOT EXISTS monty_hall (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            ganhou_sem_trocar BOOLEAN, 
+            ganhou_trocando BOOLEAN)""")
 
     @staticmethod
     def gen_random_door() -> int:
@@ -20,44 +25,27 @@ class MontyHall:
 
         # Esta parte garante que a porta escolhida pelo apresentador
         # não será a porta escolhida pelo jogador nem a porta premiada.
-        while True:
-            porta_revelada: int = self.gen_random_door()
-            if porta_revelada == porta_premiada or porta_revelada == primeira_porta_escolhida:
-                continue
-            else:
-                break
+        possiveis_portas_reveladas: int = {1, 2, 3} - {porta_premiada, primeira_porta_escolhida}
+        porta_revelada: int = random.choice(list(possiveis_portas_reveladas))
 
         # Esta parte virifica se o jogador deve ou não trocar de porta.
         if trocar_porta:
-            while True:
-                segunda_porta_escolhida: int = self.gen_random_door()
-                if segunda_porta_escolhida == primeira_porta_escolhida or segunda_porta_escolhida == porta_revelada:
-                    continue
-                else:
-                    return True if segunda_porta_escolhida == porta_premiada else False
-
-        return True if primeira_porta_escolhida == porta_premiada else False
+            segunda_porta_escolhida: int = {1, 2, 3} - {porta_revelada, primeira_porta_escolhida}
+            return segunda_porta_escolhida == porta_premiada
+        else:
+            return primeira_porta_escolhida == porta_premiada
 
     def save_to_db(self, ganhou_sem_trocar: bool, ganhou_trocando: bool) -> None:
         """ Salva os dados da partida em um banco de dados sqlite com três colunas. """
-        # Cria uma tabela chamada monty_hall SE ela não existir.
-        self.cursor.execute(
-            """CREATE TABLE IF NOT EXISTS monty_hall (
-            id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            ganhou_sem_trocar BOOLEAN, 
-            ganhou_trocando BOOLEAN)""")
         # Insere os dados da partida na tabela.
         self.cursor.execute("INSERT INTO monty_hall (ganhou_sem_trocar, ganhou_trocando) VALUES (?, ?)",
                             (ganhou_sem_trocar, ganhou_trocando))
 
-    def close_connection(self) -> None:
-        """ Fecha a conxão com o banco de dados. """
-        self.conexao.close()
-
     def commit_changes(self) -> None:
-        """ Salva os dados. """
         self.conexao.commit()
 
+    def close_connection(self) -> None:
+        self.conexao.close()
 
 # Quantidade de partidas.
 # Não é recomendado usar amostras muito grandes pois
