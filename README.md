@@ -72,17 +72,11 @@ Após definir os valores da porta que deve ser escolhida pelo jogador e da porta
 ```python
 ...
 
-while True:
-	porta_revelada: int = self.gen_random_door()
-	if porta_revelada == porta_premiada or porta_revelada == primeira_porta_escolhida:
-		continue
-	else:
-		break              
+  possiveis_portas_reveladas: int = {1, 2, 3} - {porta_premiada, primeira_porta_escolhida}
+  porta_revelada: int = random.choice(list(possiveis_portas_reveladas))
 
 ...
 ```
-
-<p style="font-size: 70%" >O código anterior itera "infinitamente" até a função "gen_random_door" gerar um índice diferente das outras portas. </br></p> 
 
 A função, então, checa se o jogador deve ou não trocar de porta. Se o usuário trocar, outra variável é criada ("segunda_porta_escolhida"), a qual não pode ser igual à primeira porta escolhia ou à porta revelada; depois verifica-se se o jogador escolheu a porta com premiada ou não. Se o jogador não trocar, verifica-se apenas se a porta escolhida foi a premiada (retorna True) ou não (retorna False):
 
@@ -91,15 +85,13 @@ def monty_hall(self, trocar_porta: bool) -> bool:
 
 ...
 
-if trocar_porta:
-	while True:
-		segunda_porta_escolhida: int = self.gen_random_door()
-		if segunda_porta_escolhida == primeira_porta_escolhida or segunda_porta_escolhida == porta_revelada:
-			continue
-		else:
-			return True if segunda_porta_escolhida == porta_premiada else False
-
-return True if primeira_porta_escolhida == porta_premiada else False
+    if trocar_porta:
+        segunda_porta_escolhida: int = {1, 2, 3} - {porta_revelada, primeira_porta_escolhida}
+	return segunda_porta_escolhida == porta_premiada
+    else:
+	return primeira_porta_escolhida == porta_premiada
+	
+...
 ```
 
 Definimos uma amostra (quantidade de jogos/partidas):
@@ -122,23 +114,37 @@ Implementacão em python utilizando a função "save_to_db":
 
 ```python
 ...
+class MontyHall:
 
-def save_to_db(self, ganhou_sem_trocar: bool, ganhou_trocando: bool) -> None:
-	self.cursor.execute(
+    def __init__(self):
+        self.conexao = sqlite3.connect("resultados.db")
+        self.cursor = self.conexao.cursor()
+        self.cursor.execute(
             """CREATE TABLE IF NOT EXISTS monty_hall (
             id INTEGER PRIMARY KEY AUTOINCREMENT, 
             ganhou_sem_trocar BOOLEAN, 
             ganhou_trocando BOOLEAN)""")
-            
+...
+   
+   def save_to_db(self, ganhou_sem_trocar: bool, ganhou_trocando: bool) -> None:
+        """ Salva os dados da partida em um banco de dados sqlite com três colunas. """
+        # Insere os dados da partida na tabela.
         self.cursor.execute("INSERT INTO monty_hall (ganhou_sem_trocar, ganhou_trocando) VALUES (?, ?)",
                             (ganhou_sem_trocar, ganhou_trocando))
-                            
+
+    def commit_changes(self) -> None:
+        self.conexao.commit()
+
+    def close_connection(self) -> None:
+        self.conexao.close()                         
 ...
 ```
 
 Por fim, o programa itera na quantidade de amostras, escrevendo cada uma das partidas no banco dedados e, no final, salvando as alterações:
 
 ```python
+amostra = 500_000
+
 mh = MontyHall()
 
 for i in range(amostra):
