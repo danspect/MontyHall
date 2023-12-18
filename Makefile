@@ -5,7 +5,7 @@ LIBS := -lsqlite3 -lm
 SRC := $(wildcard src/*.c)
 
 build: $(SRC) | $(BIN_DIR)
-	$(CC) $(CFLAGS) $^ -o $(BIN_DIR)/MontyHall
+	$(CC) $(CFLAGS) $^ -o $(BIN_DIR)/MontyHall $(LIBS)
 
 clean: 
 	rm -rf $(BIN_DIR)/*
