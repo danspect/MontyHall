@@ -9,8 +9,7 @@ typedef struct {
 void init_db(MontyHallDB *mh) {
     sqlite3_open("resultados.db", &mh->conexao);
     sqlite3_exec(mh->conexao,
-        "CREATE TABLE IF NOT EXISTS monty_hall (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "ganhou_sem_trocar BOOLEAN, ganhou_trocando BOOLEAN)", NULL, 0, 0);
+        "CREATE TABLE IF NOT EXISTS monty_hall (id INTEGER PRIMARY KEY AUTOINCREMENT, ganhou_sem_trocar BOOLEAN, ganhou_trocando BOOLEAN)", 0, 0, 0);
     sqlite3_prepare_v2(mh->conexao,
         "INSERT INTO monty_hall (ganhou_sem_trocar, ganhou_trocando) VALUES (?, ?)",
         -1, &mh->stmt, 0);
