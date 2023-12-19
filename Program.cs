@@ -1,35 +1,36 @@
-﻿namespace MontyHall;
+﻿using MontyHall.Data;
+
+namespace MontyHall;
 
 public class Program
 {
-    public static void Main()
+    public static int GenRandomDoor(Random random)
+        => random.Next(1, 3);
+
+    public static int RunExperiment(bool changeDoor, Random random)
     {
-        var montyHall = new MontyHallStatistics();
-        List<Tuple<int, string>> possibilidades;
+        var firstDoor = GenRandomDoor(random);
+        var prizeDoor = GenRandomDoor(random);
 
-        for (int i = 0; i < 100; i++)
+        var possibleRevealedDoors = new List<int> { 1, 2, 3 }
+            .Except(new List<int> { firstDoor, prizeDoor })
+            .ToList();
+
+        var revealedDoor = possibleRevealedDoors[random.Next(possibleRevealedDoors.Count)];
+
+        if (changeDoor)
         {
-            possibilidades = montyHall.GerarPossibilidades();
-
-            var partidasGanhas = possibilidades.Count(p => p.Item2 == "Ganhou");
-            var partidasPerdidas = possibilidades.Count(p => p.Item2 == "Perdeu");
-            double razao = (double)partidasGanhas / partidasPerdidas;
-
-            //foreach (var possibilidade in possibilidades)
-            //    Console.WriteLine(possibilidade);
-            string[] resultado = new string[2];
-            resultado[0] = "------------------------------------";
-            resultado[1] = $"Partidas ganhas: {partidasGanhas} \nPartidas perdidas: {partidasPerdidas} \nRazão: {razao}";
-            // resultado[0] = $"{i}, {partidasGanhas}, {partidasPerdidas}, {razao}"; // Modelo para arquivo csv.
-
-
-            Console.WriteLine(resultado[1]);
-            SalvarResultados(resultado);
+            int secondDoor = 6 - revealedDoor - firstDoor;
+            return secondDoor == prizeDoor ? 1 : 0;
+        }
+        else
+        {
+            return firstDoor == prizeDoor ? 1 : 0;
         }
     }
 
-    public static void SalvarResultados(string[] resultados)
+    public static void Main()
     {
-        File.AppendAllLines("resultados.txt", resultados);
+        var random = new Random();
     }
 }
