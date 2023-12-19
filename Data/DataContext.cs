@@ -1,7 +1,6 @@
 using System.Data;
-using Dapper;
+using System.Reflection.Metadata;
 using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.Configuration;
 
 namespace MontyHall.Data;
 
@@ -14,6 +13,7 @@ public class DataContext : IDisposable
     public DataContext()
     {
         Connection = CreateConnection();
+        Connection.Open();
     }
 
     public IDbConnection CreateConnection()
@@ -21,32 +21,43 @@ public class DataContext : IDisposable
         return new SqliteConnection($"Data Source={databaseName}");
     }
 
-    public async Task Init()
+    public void Init()
     {
-        await _createMontyHallTable();
-
-        async Task _createMontyHallTable()
-        {
-            var sql = """
+        using var command = Connection.CreateCommand();
+        command.CommandText = """
                 CREATE TABLE IF NOT EXISTS MontyHall (
-                    Id BIGINT PRIMARY KEY AUTOINCREMENT,
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     WonChanging INTEGER NOT NULL,
                     WonNotChanging INTEGER NOT NULL
                 );
                 """;
+        var sqliteParameter = command.CreateParameter();
 
-            await Connection.ExecuteAsync(sql);
-        }
+        command.ExecuteNonQuery();
     }
 
-    public async Task AddGame(Model model)
+    public void AddGame(Model model)
     {
-        var sql = @"
-            INSERT INTO MontyHall (GanhouTrocando, GanhouSemTrocar)
-            VALUES (@wonChanging, @wonNotChanging)
+        using var transaticon = Connection.BeginTransaction();
+        using var command = Connection.CreateCommand();
+        command.CommandText = @"
+            INSERT INTO MontyHall (WonChanging, WonNotChanging)
+            VALUES ($wonChanging, $wonNotChanging)
             ";
 
-        await Connection.ExecuteAsync(sql, model);
+        var changingParameter = command.CreateParameter();
+        changingParameter.ParameterName = "$wonChanging";
+        command.Parameters.Add(changingParameter);
+
+        var notChangingParameter = command.CreateParameter();
+        notChangingParameter.ParameterName = "$wonNotChanging";
+        command.Parameters.Add(notChangingParameter);
+
+        changingParameter.Value = model.wonChanging;
+        notChangingParameter.Value = model.wonNotChanging;
+
+        command.ExecuteNonQuery();
+        transaticon.Commit();
     }
 
     protected virtual void Dispose(bool disposing)

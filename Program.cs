@@ -32,5 +32,18 @@ public class Program
     public static void Main()
     {
         var random = new Random();
+        int sample = 500_000;
+
+        using (var db = new DataContext())
+        {
+            db.Init();
+
+            for (int i = 0; i < sample; i++)
+            {
+                int wonChanging = RunExperiment(true, random);
+                int wonNotChanging = RunExperiment(false, random);
+                db.AddGame(new Model(wonChanging, wonNotChanging));
+            }
+        }
     }
 }
