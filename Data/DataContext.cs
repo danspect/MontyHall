@@ -5,38 +5,78 @@ using Microsoft.Extensions.Configuration;
 
 namespace MontyHall.Data;
 
-public class DataContext
+public class DataContext : IDisposable
 {
-    private readonly IConfiguration _configuration;
+    private IDbConnection Connection { get; init; }
+    private string databaseName = "MontyHall.db";
+    private bool disposedValue;
 
-    public DataContext(IConfiguration configuration)
+    public DataContext()
     {
-        _configuration = configuration;
+        Connection = CreateConnection();
     }
 
     public IDbConnection CreateConnection()
     {
-        return new SqliteConnection(_configuration.GetConnectionString("MontyHall"));
+        return new SqliteConnection($"Data Source={databaseName}");
     }
 
     public async Task Init()
     {
-        using (var connection = CreateConnection())
-        {
-            await _createMontyHallTable();
+        await _createMontyHallTable();
 
-            async Task _createMontyHallTable()
-            {
-                var sql = """
+        async Task _createMontyHallTable()
+        {
+            var sql = """
                 CREATE TABLE IF NOT EXISTS MontyHall (
                     Id BIGINT PRIMARY KEY AUTOINCREMENT,
-                    GanhouTrocando INTEGER NOT NULL,
-                    GanhouSemTrocar INTEGER NOT NULL
+                    WonChanging INTEGER NOT NULL,
+                    WonNotChanging INTEGER NOT NULL
                 );
                 """;
 
-                await connection.ExecuteAsync(sql);
-            }
+            await Connection.ExecuteAsync(sql);
         }
+    }
+
+    public async Task AddGame(Model model)
+    {
+        var sql = @"
+            INSERT INTO MontyHall (GanhouTrocando, GanhouSemTrocar)
+            VALUES (@wonChanging, @wonNotChanging)
+            ";
+
+        await Connection.ExecuteAsync(sql, model);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposedValue)
+        {
+            if (disposing)
+            {
+                // TODO: dispose managed state (managed objects)
+                Connection.Close();
+                Connection.Dispose();
+            }
+
+            // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+            // TODO: set large fields to null
+            disposedValue = true;
+        }
+    }
+
+    // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+    // ~DataContext()
+    // {
+    //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+    //     Dispose(disposing: false);
+    // }
+
+    public void Dispose()
+    {
+        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
     }
 }
