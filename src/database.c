@@ -1,7 +1,13 @@
 #include <sqlite3.h>
 #include <stdbool.h>
 
-typedef struct
+typedef struct game
+{
+    bool ganhou_sem_trocar;
+    bool ganhou_trocando;
+} MontyHallGame;
+
+typedef struct database
 {
     sqlite3 *conexao;
     sqlite3_stmt *stmt;
@@ -17,10 +23,10 @@ void init_db(MontyHallDB *database)
                        -1, &database->stmt, 0);
 }
 
-void save_to_db(MontyHallDB *database, bool ganhou_sem_trocar, bool ganhou_trocando)
+void save_to_db(MontyHallDB *database, MontyHallGame *game)
 {
-    sqlite3_bind_int(database->stmt, 1, ganhou_sem_trocar);
-    sqlite3_bind_int(database->stmt, 2, ganhou_trocando);
+    sqlite3_bind_int(database->stmt, 1, game->ganhou_sem_trocar);
+    sqlite3_bind_int(database->stmt, 2, game->ganhou_trocando);
     sqlite3_step(database->stmt);
     sqlite3_reset(database->stmt);
 }
