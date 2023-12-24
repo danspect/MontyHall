@@ -1,13 +1,13 @@
 #include <sqlite3.h>
 #include <stdbool.h>
 
-typedef struct game
+typedef struct MontyHallGame
 {
     bool ganhou_sem_trocar;
     bool ganhou_trocando;
 } MontyHallGame;
 
-typedef struct database
+typedef struct MontyHallDB
 {
     sqlite3 *conexao;
     sqlite3_stmt *stmt;
