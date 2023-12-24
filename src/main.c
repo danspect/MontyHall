@@ -43,18 +43,20 @@ int main()
     srand((unsigned)time(NULL));
     int amostra = 500000;
 
-    MontyHallDB mh;
-    init_db(&mh);
+    MontyHallGame game;
+    MontyHallDB db;
+
+    init_db(&db);
 
     for (int i = 0; i < amostra; ++i)
     {
-        bool resultado_sem_trocar = monty_hall(false);
-        bool resultado_trocando = monty_hall(true);
-        save_to_db(&mh, resultado_sem_trocar, resultado_trocando);
+        game.ganhou_sem_trocar = monty_hall(false);
+        game.ganhou_trocando = monty_hall(true);
+        save_to_db(&db, &game);
     }
 
-    commit_changes(&mh);
-    close_connection(&mh);
+    commit_changes(&db);
+    close_connection(&db);
 
     return 0;
 }
