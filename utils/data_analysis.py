@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 import sqlite3
 import numpy as np
 
+"""
+TODO: este arquivo precisa de uma revisão completa.
+"""
 
 class ProjectDataAnalyser:
 
