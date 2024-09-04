@@ -58,10 +58,9 @@ Após definir os valores da porta que deve ser escolhida pelo jogador e da porta
 
 ```python
 ...
-
-  possiveis_portas_reveladas: int = {1, 2, 3} - {porta_premiada, primeira_porta_escolhida}
-  porta_revelada: int = random.choice(list(possiveis_portas_reveladas))
-
+   porta_revelada: int = random.choice(
+            list({1, 2, 3} - {porta_premiada, primeira_porta_escolhida})
+        )
 ...
 ```
 
@@ -73,11 +72,9 @@ def monty_hall(self, trocar_porta: bool) -> bool:
 ...
 
     if trocar_porta:
-        segunda_porta_escolhida: int = {1, 2, 3} - {porta_revelada, primeira_porta_escolhida}
- return segunda_porta_escolhida == porta_premiada
-    else:
- return primeira_porta_escolhida == porta_premiada
- 
+            return ({1, 2, 3} - {porta_revelada, primeira_porta_escolhida}).pop() == porta_premiada
+        else:
+            return primeira_porta_escolhida == porta_premiada
 ...
 ```
 
@@ -90,59 +87,87 @@ amostra = 1_000
 > [!WARNING]
 > Note que quanto maior a amostra mais tempo levará para rodar todos os casos.
 
-Para salvar os dados, o programa cria uma tabela chamada "monty_hall" com três colunas: id (int), ganhou_sem_trocar(bool), ganhou_trocando(bool). Exemplo em sql:
+Para salvar os dados, o programa cria uma tabela chamada "Ganhou" com três colunas: id (int), won_changing (int [0 ou 1]) won_not_changing(int [0 ou 1]). Exemplo em sql:
 
 ```sql
-CREATE TABLE IF NOT EXISTS monty_hall (
-            id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            ganhou_sem_trocar BOOLEAN, 
-            ganhou_trocando BOOLEAN);
+
+CREATE TABLE IF NOT EXISTS Game(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  won_changing INTEGER,
+  won_not_changing INTEGER);     
 ```
 
-Implementacão em python utilizando a função "save_to_db":
+Implementacão em python:
 
 ```python
 ...
-class MontyHall:
+class Database:
 
-    def __init__(self):
-        self.conexao = sqlite3.connect("resultados.db")
-        self.cursor = self.conexao.cursor()
+    def __init__(self, db_name: str) -> None:
+        self.database_connection: sqlite3.Connection = sqlite3.connect(db_name)
+        self.cursor: sqlite3.Cursor = self.database_connection.cursor()
         self.cursor.execute(
-            """CREATE TABLE IF NOT EXISTS monty_hall (
-            id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            ganhou_sem_trocar BOOLEAN, 
-            ganhou_trocando BOOLEAN)""")
-...
-   
-   def save_to_db(self, ganhou_sem_trocar: bool, ganhou_trocando: bool) -> None:
-        """ Salva os dados da partida em um banco de dados sqlite com três colunas. """
-        # Insere os dados da partida na tabela.
-        self.cursor.execute("INSERT INTO monty_hall (ganhou_sem_trocar, ganhou_trocando) VALUES (?, ?)",
-                            (ganhou_sem_trocar, ganhou_trocando))
+            """CREATE TABLE IF NOT EXISTS Game(
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                won_changing INTEGER,
+                                won_not_changing INTEGER
+                            )"""
+        )
 
-    def commit_changes(self) -> None:
-        self.conexao.commit()
+    def insert_data(self, game: Game) -> None:
+        self.cursor.execute(
+            "INSERT INTO Game(won_changing, won_not_changing) VALUES (?, ?)",
+            (game.won_changing, game.won_not_changing),
+        )
+        self.database_connection.commit()
+
+    def get_all_games(self) -> list[tuple[int, int, int]]:
+        result = self.cursor.execute("SELECT * FROM Game")
+        return result.fetchall()
+
+    def get_game_by_id(self, id: int) -> tuple[int, int]:
+        result = self.cursor.execute(f"SELECT id FROM Game WHERE id == {id}")
+        return result.fetchone()
+
+    def get_wins_changing(self) -> tuple[int, None]:
+        result = self.cursor.execute("SELECT count(won_changing) FROM Game WHERE won_changing == 1")
+        return result.fetchone()
+
+    def get_wins_not_changing(self) -> tuple[int, None]:
+        result = self.cursor.execute("SELECT count(won_not_changing) FROM Game WHERE won_not_changing == 1")
+        return result.fetchone()
 
     def close_connection(self) -> None:
-        self.conexao.close()                         
+        self.database_connection.close()       
 ...
 ```
 
 Por fim, o programa itera na quantidade de amostras, escrevendo cada uma das partidas no banco dedados e, no final, salvando as alterações:
 
 ```python
-amostra = 500_000
 
-mh = MontyHall()
+from data_analysis import plot
+from database import Database, Game
+from montyhallgame import MontyHallGame
+from settings import amostra, db_name
+
+...
+
+db = Database(db_name)
+mh = MontyHallGame()
 
 for i in range(amostra):
-    resultado_sem_trocar: bool = mh.monty_hall(False)
-    resultado_trocando: bool = mh.monty_hall(True)
-    mh.save_to_db(resultado_sem_trocar, resultado_trocando)
+    print(f"Iteration: {i}", end="\r")
+    db.insert_data(Game(mh.monty_hall(True), mh.monty_hall(False)))
 
-mh.commit_changes()
-mh.close_connection()
+...
+
+data = db.get_all_games()
+
+db.close_connection()
+
+plot(data, "barchart.png")
+
 ```
 
 ---
