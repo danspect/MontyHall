@@ -90,7 +90,6 @@ amostra = 1_000
 Para salvar os dados, o programa cria uma tabela chamada "Ganhou" com três colunas: id (int), won_changing (int [0 ou 1]) won_not_changing(int [0 ou 1]). Exemplo em sql:
 
 ```sql
-
 CREATE TABLE IF NOT EXISTS Game(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   won_changing INTEGER,
@@ -124,10 +123,6 @@ class Database:
     def get_all_games(self) -> list[tuple[int, int, int]]:
         result = self.cursor.execute("SELECT * FROM Game")
         return result.fetchall()
-
-    def get_game_by_id(self, id: int) -> tuple[int, int]:
-        result = self.cursor.execute(f"SELECT id FROM Game WHERE id == {id}")
-        return result.fetchone()
 
     def get_wins_changing(self) -> tuple[int, None]:
         result = self.cursor.execute("SELECT count(won_changing) FROM Game WHERE won_changing == 1")
