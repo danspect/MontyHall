@@ -35,11 +35,11 @@ class Database:
         result = self.cursor.execute(f"SELECT id FROM Game WHERE id == {id}")
         return result.fetchone()
 
-    def get_wins_changing(self) -> int:
+    def get_wins_changing(self) -> tuple[int, None]:
         result = self.cursor.execute("SELECT count(won_changing) FROM Game WHERE won_changing == 1")
         return result.fetchone()
 
-    def get_wins_not_changing(self) -> int:
+    def get_wins_not_changing(self) -> tuple[int, None]:
         result = self.cursor.execute("SELECT count(won_not_changing) FROM Game WHERE won_not_changing == 1")
         return result.fetchone()
 
