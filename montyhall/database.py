@@ -17,7 +17,7 @@ class Database:
                                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                                 won_changing INTEGER,
                                 won_not_changing INTEGER
-                            );"""
+                            )"""
         )
 
     def insert_data(self, game: Game) -> None:
@@ -33,6 +33,14 @@ class Database:
 
     def get_game_by_id(self, id: int) -> tuple[int, int]:
         result = self.cursor.execute(f"SELECT id FROM Game WHERE id == {id}")
+        return result.fetchone()
+
+    def get_wins_changing(self) -> int:
+        result = self.cursor.execute("SELECT count(won_changing) FROM Game WHERE won_changing == 1")
+        return result.fetchone()
+
+    def get_wins_not_changing(self) -> int:
+        result = self.cursor.execute("SELECT count(won_not_changing) FROM Game WHERE won_not_changing == 1")
         return result.fetchone()
 
     def close_connection(self) -> None:
