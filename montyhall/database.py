@@ -35,6 +35,9 @@ class Database:
         result = self.cursor.execute(f"SELECT id FROM Game WHERE id == {id}")
         return result.fetchone()
 
+    def close_connection(self) -> None:
+        self.database_connection.close()
+
     # def __enter__(self) -> sqlite3.Connection:
     #    self.database_connection = sqlite3.connect(self.db_name)
     #    return self.database_connection
