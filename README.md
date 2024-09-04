@@ -9,15 +9,11 @@
   5. [Como recriar o experimento](#como-recriar-o-experimento)
   6. [Referências](#referências)
 
----
-
 ## Introdução
 
 O problema de [Monty Hall](https://brilliant.org/wiki/monty-hall-problem/) envolve três portas, sendo que uma delas esconde um prêmio e as outras duas contém um bode. Uma pessoa (ou algum jogador) seleciona uma porta (que ainda não está aberta), e, logo após, outra porta (que não foi a escolhida) é aberta pelo apresentador e mostra que atrás desta havia um bode. Agora, restam duas portas fechadas (uma com o prêmio e outra com outro bode). Então, depois dessa etapa, a pessoa pode decidir se mantém a sua escolha inicial ou se troca de porta. A questão é: <strong> a melhor opção é ficar com a porta que escolheu no começo ou mudar para a outra porta que restou? </strong>
 
 <img src="images/doors.png" alt="três portas com sinais de interrogação."/>
-
----
 
 ## O problema
 
@@ -34,8 +30,6 @@ Nesse sentido, o grande ponto do problema de Monty Hall é este: <strong> o apre
 
 Por conseguinte, agora sabemos que uma das portas não tem nenhuma chance de ter o prêmio. Ou seja, é intuitivo pensar que agora cada uma das duas portas restantes possuem 50% de chance de ter o prêmio. No entanto, nos próximos tópicos será provado o porquê disso não ser verdade.  
 
----
-
 ## Porque é melhor trocar de porta
 
 Como visto anteriormente, cada porta tem 1/3 de chance de ter o prêmio. No entanto, como apenas uma tem o prêmio, temos 1/3 de chance de acertar (uma porta certa) e 1/3 + 1/3 de chance de errar (duas portas com bodes), ou seja, 2/3 de chance de escolher uma porta com um bode. Logo, a explicação mais rapida é que, como temos mais chance de escolher uma porta errada (2/3 é o dobro de 1/3), é mais provável ganhar se trocar de porta.</br>
@@ -43,8 +37,6 @@ Como visto anteriormente, cada porta tem 1/3 de chance de ter o prêmio. No enta
 Observe, na imagem abaixo, a representação em um digrama de árvore das possibilidades.
 
 <img src="images/tree-graph.png" alt="digrama de ávore das possibilidades do jogo."/>
-
----
 
 ## Como o programa funciona
 
@@ -97,8 +89,9 @@ Nesse momento é definida uma amostra pro experimento (quantidade de jogos/parti
 ```python
 amostra = 500_000
 ```
-> [!NOTE]
-> Como a amostra define a quantidade de partidas, com uma amostra de 500.000 teremos 500.000 partidas. É valido que quanto maior a amostra mais claros serão os resultados. Ademais, quanto maior a amostra mais tempo levará para rodar todos os casos.
+
+> [!WARNING]
+> Note que quanto maior a amostra mais tempo levará para rodar todos os casos.
 
 Para salvar os dados, o programa cria uma tabela chamada "monty_hall" com três colunas: id (int), ganhou_sem_trocar(bool), ganhou_trocando(bool). Exemplo em sql:
 

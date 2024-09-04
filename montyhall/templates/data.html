@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 60%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">RELAÇÃO DE DADOS</h1>
+
+        <table>
+            <tr>
+                <th>Vitórias Trocando</th>
+                <th>Vitŕorias Sem Trocar</th>
+                <th>Razão</th>
+            </tr>
+            <tr>
+                <td> {{ wins_changing }} </td>
+                <td> {{ wins_not_changing }} </td>
+                <td> {{ ratio }} </td>
+            </tr>
+        </table>
+
+        <h2> GRÁFICO DE BARRAS </h2>
+        <img src="../../barchart.png" />
+    </div>
+</body>
+
+</html>
