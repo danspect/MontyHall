@@ -14,6 +14,6 @@ class MontyHallGame:
             list({1, 2, 3} - {porta_premiada, primeira_porta_escolhida})
         )
         if trocar_porta:
-            return {1, 2, 3} - {porta_revelada, primeira_porta_escolhida} == porta_premiada
+            return ({1, 2, 3} - {porta_revelada, primeira_porta_escolhida}).pop() == porta_premiada
         else:
             return primeira_porta_escolhida == porta_premiada
