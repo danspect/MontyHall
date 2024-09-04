@@ -9,4 +9,3 @@ for i in range(500):
     db.insert_data(Game(mh.monty_hall(True), mh.monty_hall(False)))
 
 db.close_connection()
-
