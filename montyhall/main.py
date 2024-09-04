@@ -14,4 +14,4 @@ data = db.get_all_games()
 
 db.close_connection()
 
-plot(data)
+plot(data, "barchart.png")
