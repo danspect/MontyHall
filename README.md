@@ -48,8 +48,8 @@ Em seguida, outra função, utilizando a função anterior, define valores para 
 
 ```python
 def monty_hall(self, trocar_porta: bool) -> bool:
- porta_premiada: int = self.gen_random_door()
-        primeira_porta_escolhida: int = self.gen_random_door()
+  porta_premiada: int = self.gen_random_door()
+  primeira_porta_escolhida: int = self.gen_random_door()
         
 ...
 ```
